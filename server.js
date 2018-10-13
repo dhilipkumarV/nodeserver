@@ -3,6 +3,7 @@ const hbs = require('hbs');
 const fs = require('fs');
 /* Creating an express app */
 const app = express();
+const port = process.env.PORT || 4000;
 app.set('view engine', 'hbs');
 
 app.use((req, res, next) => {
@@ -55,4 +56,6 @@ app.get('/about', (req,res) => {
 });
 
 /* To make our app listen to port 4000 */
-app.listen(4000);
+app.listen(port, () => {
+  console.log(`Server is up on port:${port}`);
+});
